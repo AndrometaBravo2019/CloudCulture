@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Nav, NavItem, a} from 'reactstrap'
 import { BrowserRouter as  Router, Route } from 'react-router-dom'
 
-
 class Navbar extends React.Component {
   render () {
       const {logged_in, sign_in, sign_out, current_user } = this.props
@@ -14,6 +13,12 @@ class Navbar extends React.Component {
                     className = "home"
                     href="/">
                     Home
+                 </a>
+
+                 <a
+                    className = "profile"
+                    href= {logged_in && `/userprofile/${current_user.id}` || sign_in}>
+                    Profile
                  </a>
 
                  <a
@@ -36,11 +41,12 @@ class Navbar extends React.Component {
                   </a>
 
                     <a className = "username">
-                    {logged_in && current_user.email}
+                    {logged_in && current_user.username}
                     </a>
 
              </nav>
        );
      }
    }
+
 export default Navbar
