@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import MapIcon from './mapIcon';
+// caused heroku build to fail
+// import MapIcon from './mapIcon';
 import UserModal from './userModal'
 
 export class MapContainer extends Component {
