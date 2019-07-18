@@ -12,29 +12,25 @@ import AboutUs from './aboutus'
 import Profile from './profile'
 import LearnMore from './learnmore'
 import Landing from './landing'
+import NewTag from './newtag'
 
-
-////fetches
+/////fetches
 import{ getLocation } from './API'
 import { getPosts } from '../api/index.js'
 import {getCloseUsers} from './API'
 
 
 
-
-
 class Routes extends React.Component {
 
     constructor(props) {
-    super(props)
-    this.state = {
-      postsFilter:[],
-      myLocation: [],
-      posts: []
-
-
-    }
-  }
+        super(props)
+            this.state = {
+              postsFilter:[],
+              myLocation: [],
+              posts: []
+            }
+      }
 
 
   componentWillMount() {
@@ -65,7 +61,6 @@ class Routes extends React.Component {
     return (
         <Switch>
 
-
              <Route exact path="/"
              component={() => <Landing
                  logged_in={logged_in}
@@ -83,16 +78,16 @@ class Routes extends React.Component {
                  sign_in = {sign_in}
                  sign_out = {sign_out}/>} />
 
+             <Route exact path="/createtag" component= {() => <NewTag />} />
+
              <Route exact path="/about" component= {() => <AboutUs />} />
              <Route exact path="/more" component={() => <LearnMore />} />
-
              <Route exact path="/userprofile/:id" component={(props) => <Profile
                 {...props}
                 users = {users}
                 current_user = {current_user}
                 edit_user = {edit_user}
                 posts = {posts}/>} />
-
              <Route exact path="/feed" component={() => <CloudFeed
                posts={posts}
                logged_in={logged_in}

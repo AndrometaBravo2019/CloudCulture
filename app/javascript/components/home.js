@@ -60,7 +60,7 @@ class Home extends React.Component {
 
   render () {
     console.log(this.props.posts.length);
-
+    
     let{ feed, currentLocation, closeUsers, posts, closePosts}=this.state
 
     let{ renderProfiles }=this

@@ -7,7 +7,7 @@ class CloudFeed extends React.Component {
     super(props)
     this.state={
       statusFilterArr:[1,2,3],
-      statusdisp:["Available", "Working", "Busy"],
+      statusdisp:["Available", "Working", "Busy", "Friend Request", "Friended", "Rejected", "Blocked"],
       cSelected: [] ,
     }
   }
@@ -32,12 +32,13 @@ class CloudFeed extends React.Component {
         <Container>
         <ListGroup id="postfeed">
         <ButtonGroup>
-         <Button color="primary" onClick={() => this.handleFilterChange(1)} active={this.state.cSelected.includes(1)}>One</Button>
-         <Button color="primary" onClick={() => this.handleFilterChange(2)} active={this.state.cSelected.includes(2)}>Two</Button>
-         <Button color="primary" onClick={() => this.handleFilterChange(3)} active={this.state.cSelected.includes(3)}>Three</Button>
+         <Button color="primary" onClick={() => this.handleFilterChange(1)} active={this.state.cSelected.includes(1)}>Available</Button>
+         <Button color="primary" onClick={() => this.handleFilterChange(2)} active={this.state.cSelected.includes(2)}>Working</Button>
+         <Button color="primary" onClick={() => this.handleFilterChange(3)} active={this.state.cSelected.includes(3)}>Busy</Button>
        </ButtonGroup>
        {closePosts.map((post,index) => {
             if(statusFilterArr.includes(post.post_status)){
+                let pind = post.post_status - 1
                 return(
 
 
@@ -46,7 +47,7 @@ class CloudFeed extends React.Component {
 
         <hr/>
 
-        <a align="left" href=""><img className="feed-avatar" id="postfeed" src ={post.user.picture_url} alt=''/></a>
+        <a align="left" href={`userprofile/${post.user.id}`}><img className="feed-avatar" id="postfeed" src ={post.user.picture_url} alt=''/></a>
 
         <br/>
 
@@ -55,7 +56,7 @@ class CloudFeed extends React.Component {
         <br/>
         <br/>
 
-        {post.poststring}<font color = 'orange'></font> (statusdisp[{post.post_status}-1])</p>
+        {post.poststring}<font color = 'orange'></font> ({statusdisp[pind]})</p>
 
         <div className = 'row'>
         <div className = 'col-4'>

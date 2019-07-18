@@ -1,4 +1,3 @@
-
 //////// users fetches/////////////
 
 
@@ -103,8 +102,26 @@ export {
 }
 
 
+// let goodbyeToYou = function(id){
+// 	return fetch(`/destroyfriendship/${id}`)
+// 	.then((resp) => {
+// 		let json = resp.json()
+// 		console.log(json);
+// 		return json
+// 	})
+// }
+// export {
+// 	goodbyeToYou
+// }
+
 let goodbyeToYou = function(id){
-	return fetch(`/destroyfriendship/${id}`)
+	return fetch(`/destroyfriendship`,{
+		body: JSON.stringify(id),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "DELETE"
+	})
 	.then((resp) => {
 		let json = resp.json()
 		console.log(json);
@@ -115,23 +132,7 @@ export {
 	goodbyeToYou
 }
 
-// let goodbyeToYou = function(id){
-// 	return fetch(`/destroyfriendship/${id}`,{
-// 		body: JSON.stringify(id),
-// 		headers: {
-// 			'Content-Type': 'application/json'
-// 		},
-// 		method: "DELETE"
-// 	})
-// 	.then((resp) => {
-// 		let json = resp.json()
-// 		console.log(json);
-// 		return json
-// 	})
-// }
-// export {
-// 	goodbyeToYou
-// }
+
 
 
 
@@ -153,4 +154,22 @@ let allTagNames = function() {
 
 export  {
 	allTagNames
+}
+
+let createTagName = function(tagname){
+	return fetch(`/newtagname`, {
+		body: JSON.stringify(tagname),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "POST"
+	})
+		.then((resp) => {
+			let json = resp.json()
+			console.log(json);
+			return json
+		})
+}
+export {
+	createTagName
 }
