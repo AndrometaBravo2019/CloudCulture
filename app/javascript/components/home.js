@@ -140,8 +140,8 @@ class Home extends React.Component {
                 <Button>{current_user && "Confirm Location" || "Hide my Location"}</Button>
                 </div>
 
-        </div>
-        </div>
+                </div>
+            </div>
         </div>
 
        );
