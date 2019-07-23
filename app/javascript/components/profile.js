@@ -165,7 +165,7 @@ class Profile extends Component {
             <hr/>
          </div>
 
-               <a align="left" href=""><img className="feed-avatar" id="postfeed" src ="https://cdn3.iconfinder.com/data/icons/back-to-the-future/512/marty-mcfly-512.png" alt=''/></a>
+               <a align="left" href=""><img className="feed-avatar" id="postfeed" src ={user.picture_url} alt=''/></a>
            <h3>{user.firstname} {user.lastname} ({user.username})<br/></h3>
 
            <div className = "buttons">
@@ -174,7 +174,7 @@ class Profile extends Component {
                {friendsids.includes(user.id) && <button onClick = {this.destroyFriendship}>UnFriend</button> || current_user.id != user.id && !pendingids.includes(user.id) && <button onClick = {this.handleFriendRequest}>Send a friend Request</button> }
                {current_user.id != user.id && <button>Send a Message</button>}
                {current_user.id == user.id && <button><a href = {edit_user}>Edit Profile</a></button>}
-               {current_user.id == user.id && <button>Other Button</button>}
+               {current_user.id == user.id && <button><a href = "/map">Map</a></button>}
            </div>
 
            <h4>

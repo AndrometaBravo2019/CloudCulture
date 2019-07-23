@@ -26,7 +26,14 @@ class NewTag extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className = "newTag">
+            <br/>
+            <button
+                type="submit"
+                href = "/map"
+                className="btn btn-secondary btn-sm">HOME
+            </button>
+            <br/>
             <br/>
             <form>
                 <input
@@ -43,6 +50,7 @@ class NewTag extends React.Component {
                     className="btn btn-secondary btn-sm">CREATE TAG
                 </button>
             </form>
+
         </div>
 
     )
