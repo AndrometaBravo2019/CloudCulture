@@ -119,6 +119,11 @@ class CloudPost extends React.Component {
                     <DropdownToggle split variant="success" id="dropdown-split-basic" />
 
                     <DropdownMenu>
+                        <DropdownItem
+                             href="/createtag">
+                             ⇥ Create a Tag ⇤
+                         </DropdownItem>
+
                         {dropitems}
                     </DropdownMenu>
                 </Dropdown>
