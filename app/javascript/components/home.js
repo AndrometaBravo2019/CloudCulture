@@ -139,9 +139,8 @@ class Home extends React.Component {
                 <p>this button does not work currently</p>
                 <Button>{current_user && "Confirm Location" || "Hide my Location"}</Button>
                 </div>
-
-        </div>
-        </div>
+                </div>
+            </div>
         </div>
 
        );

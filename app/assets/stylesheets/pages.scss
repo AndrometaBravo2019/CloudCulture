@@ -142,10 +142,19 @@ background: url(http://www.alcortech.com/wp3/wp-content/uploads/2016/08/Cloud.jp
  color: #fff;
  background-color: #111;
  min-height: 600px;
- padding: 0;
  background-size: cover;
  background-position: center center;
  overflow: visible;
+ background-attachment: fixed;
+ position: relative;
+ width: 100%;
+ height: auto;
+ color: #fff;
+ background-color: #111;
+ min-height: 600px;
+ padding: 0;
+ background-size: cover;
+ background-position: center center;
  background-attachment: fixed;
 
 //   text-align: center;
@@ -549,17 +558,7 @@ INTRO SECTION
 
 
 .intro {
-  background: url(cloud.jpg);
-  position: relative;
-  width: 100%;
-  height: auto;
-  color: #fff;
-  background-color: #111;
-  min-height: 600px;
-  padding: 0;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+
 }
 
 .intro h1,

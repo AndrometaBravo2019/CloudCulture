@@ -174,7 +174,7 @@ class Profile extends Component {
                {friendsids.includes(user.id) && <button onClick = {this.destroyFriendship}>UnFriend</button> || current_user.id != user.id && !pendingids.includes(user.id) && <button onClick = {this.handleFriendRequest}>Send a friend Request</button> }
                {current_user.id != user.id && <button>Send a Message</button>}
                {current_user.id == user.id && <button><a href = {edit_user}>Edit Profile</a></button>}
-               {current_user.id == user.id && <button><a href = "/map">Map</a></button>}
+                <button><a href = "/map">Map</a></button>
            </div>
 
            <h4>
