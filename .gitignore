@@ -37,10 +37,8 @@
 yarn-debug.log*
 .yarn-integrity
 
-/config/database.yml
-/config/environments/development.rb
-
 # Ignore application configuration
 /config/application.yml
 
+.env
 .DS_Store
