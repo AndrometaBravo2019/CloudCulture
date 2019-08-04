@@ -32,7 +32,6 @@ componentDidUpdate(prevProps) {
      mymap.on('locationerror', onLocationError);
 
      mymap.on('locationfound', onLocationFound);
-   // console.log(this.state.closeUsers);
    const {closeUsers} = this.props
      if(closeUsers.length != 0 || null) {
          closeUsers.map((user, index) => {

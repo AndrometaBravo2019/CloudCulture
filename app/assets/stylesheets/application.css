@@ -15,6 +15,36 @@
  *
  * Always set the map height explicitly to define the size of the div
  * element that contains the map. */
+
+ html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+ }
+
+ img {
+   width: auto;
+   height: auto;
+   max-width: 100%;
+ }
+
+ section {
+   padding: 150px 0;
+ }
+
+ @media (max-width: 767.98px) {
+   section {
+     padding: 60px 0;
+   }
+ }
+
+ footer {
+   padding: 20px 0;
+   background-color: #111;
+ }
+
+
+
 @import url("https://unpkg.com/leaflet@1.5.1/dist/leaflet.css");
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 /*  MOBILE STYLING*/
@@ -27,7 +57,10 @@
       display: grid;
       grid-template-columns: 100vw 100vw;
       grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas: "Feed Map-Container" "Feed Map-Container" "Feed Map-Container";
+      grid-template-areas:
+      "Feed Map-Container"
+      "Feed Map-Container"
+      "Feed Map-Container";
   }
   #mapid {
     height: 100%;
@@ -89,17 +122,10 @@
          /* Optional: Makes the sample page fill the window. */
 
          /* can we be more spacific?
-
         example ->   .divName body{}   #divName html
-
         this will prevent conflicting css... see App.css
-
           */
-         html, body {
-           height: 100%;
-           margin: 0;
-           padding: 0;
-         }
+
 
         /* cant find these */
 
@@ -112,8 +138,6 @@
         border-radius: 15px;
         border-color: #cccccc;
         }
-
-
 
         .feed-name{
           grid-column-start: 1;
@@ -189,18 +213,25 @@
           display: grid;
           grid-template-columns: 500px 1fr 1fr 1fr;
           grid-template-rows: 1fr 1fr 1fr;
-          grid-template-areas: "Feed Map-Container Map-Container Map-Container" "Feed Map-Container Map-Container Map-Container" "Feed Map-Container Map-Container Map-Container";
+          grid-template-areas:
+          "Feed Map-Container Map-Container Map-Container"
+          "Feed Map-Container Map-Container Map-Container"
+          "Feed Map-Container Map-Container Map-Container";
         }
 
         .Feed {
+          grid-area: Feed;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           grid-template-rows: 50px 1fr;
-          grid-template-areas: "feed-top-nav feed-top-nav feed-top-nav" "Feed-Posts Feed-Posts Feed-Posts";
-          grid-area: Feed;
+          grid-template-areas:
+          "feed-top-nav feed-top-nav feed-top-nav"
+          "Feed-Posts Feed-Posts Feed-Posts";
         }
 
         .Map-Container {
+          grid-area: Map-Container;
+          overflow: hidden;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
           grid-template-rows: 20vh 20vh 20vh 20vh 20vh;
@@ -210,14 +241,12 @@
           "Map Map Map Map"
           "Comment-Box Comment-Box . Filter-Area"
           "Comment-Box Comment-Box . Filter-Area";
-          grid-area: Map-Container;
-          overflow: hidden;
         }
         #mapid {
+          grid-area: Map;
           height: 100%;
           width: 100%;
           z-index: 0;
-          grid-area: Map;
          }
         .Comment-Box {
           grid-area: Comment-Box;
@@ -230,7 +259,7 @@
 
         }
         .Filter-Area {
-          grid-area: Comment-Box;
+          grid-area: Filter-Area;
           margin: 20px;
           border-radius: 20px;
           z-index: 99;
@@ -298,11 +327,17 @@
           height: 100vh;
         }
         .form-area {
+          grid-area: form-area;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
           grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-          grid-template-areas: "firstname firstname lastname lastname lastname" "email email username username username" ". gender age age ." "password password bio bio bio" "confirm-password confirm-password bio bio bio" ". login . submit .";
-          grid-area: form-area;
+          grid-template-areas:
+          "firstname firstname lastname lastname lastname"
+          "email email username username username"
+          ". gender age age ."
+          "password password bio bio bio"
+          "confirm-password confirm-password bio bio bio"
+          ". login . submit .";
         }
         .firstname{
           grid-area: firstname;

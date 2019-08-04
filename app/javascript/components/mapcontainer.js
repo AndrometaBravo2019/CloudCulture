@@ -58,12 +58,10 @@ this.state = {
    };
   render() {
     let {username, userStatus, closeUsers} = this.props
-    console.log(closeUsers.length + " users");
     let userGeoArr = []
     closeUsers.map((user, index)=>{
       userGeoArr.push({lat: user.lat, lng: user.lng})
     })
-    console.log(userGeoArr);
     const style = {
       width: '100%',
       height: '100%'

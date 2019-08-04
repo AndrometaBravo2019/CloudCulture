@@ -12,7 +12,6 @@ class Userinfo extends Component {
     render(){
         let {bio} = this.state
         const {user} = this.props
-        console.log(bio);
       return (
         <div className = "userinfo">
             <h2> About {user.firstname}</h2>
