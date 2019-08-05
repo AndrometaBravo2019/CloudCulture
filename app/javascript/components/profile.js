@@ -17,6 +17,7 @@ import Userinfo from "./userinfo"
 import Photos from "./photos"
 import ProfileFeed from "./profilefeed"
 import CloudPost from "./post"
+import ChangeAvatar from './changeAvatar'
 import Friendpic from './friendpic'
 
 class Profile extends Component {
@@ -165,7 +166,12 @@ class Profile extends Component {
             <hr/>
          </div>
 
-               <a align="left" href=""><img className="feed-avatar" id="postfeed" src ={user.picture_url} alt=''/></a>
+              <div>
+                   <ChangeAvatar
+                     current_user={current_user}
+                   />
+                 <img className="feed-avatar" id="postfeed" src ={user.picture_url} alt=''/>
+              </div>
            <h3>{user.firstname} {user.lastname} ({user.username})<br/></h3>
 
            <div className = "buttons">

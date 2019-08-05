@@ -73,3 +73,31 @@ Post.create(
  lat: 32.708858,
  lng: -117.158563
 )
+
+tag = Tagname.new
+tag.tag = "Rails"
+tag.save!
+
+tag2 = Tagname.new
+tag2.tag = "Ruby"
+tag2.save!
+
+tag3 = Tagname.new
+tag3.tag = "Javascript"
+tag3.save!
+
+tag4 = Tagname.new
+tag4.tag = "Java"
+tag4.save!
+
+tag5 = Tagname.new
+tag5.tag = "C++"
+tag5.save!
+
+tag6 = Tagname.new
+tag6.tag = "HTML"
+tag6.save!
+
+tag7 = Tagname.new
+tag7.tag = "CSS/SCSS"
+tag7.save!
