@@ -36,9 +36,6 @@ class ChangeAvatar extends React.Component {
           <ModalBody>
 
 
-
-
-
           <p>REMOVE CREDENTIALS FROM STORAGE.YML</p>
            <h5>User: {current_user.firstname} </h5>
            { current_user && current_user.picture_url &&

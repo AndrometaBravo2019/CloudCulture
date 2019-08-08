@@ -155,52 +155,55 @@ class Profile extends Component {
             sentpendingids, blocked
         } = this.state
 
+        const profileAlt = `${user.firstname} ${user.lastname}'s profile picture`
+
     return (
 
     <section id="intro" className="intro">
+      <div className="overlay">
+        <div id ='title'>
+          <h1>CLOUD CULTURE</h1>
+          <hr/>
+        </div>
 
-         <div className="overlay">
-
-           <div id ='title'>
-            <h1>CLOUD CULTURE</h1>
-            <hr/>
-         </div>
-
-              <div>
-                   <ChangeAvatar
-                     current_user={current_user}
-                   />
-                 <img className="feed-avatar" id="postfeed" src ={user.picture_url} alt=''/>
-              </div>
-           <h3>{user.firstname} {user.lastname} ({user.username})<br/></h3>
-
-           <div className = "buttons">
-               {!friendsids.includes(user.id) && sentpendingids.includes(user.id) && <button onClick = {this.handleAccept}>Accept</button>}
-               {!friendsids.includes(user.id) && sentpendingids.includes(user.id) && <button onClick = {this.handleReject}>Reject</button>}
-               {friendsids.includes(user.id) && <button onClick = {this.destroyFriendship}>UnFriend</button> || current_user.id != user.id && !pendingids.includes(user.id) && <button onClick = {this.handleFriendRequest}>Send a friend Request</button> }
-               {current_user.id != user.id && <button>Send a Message</button>}
-               {current_user.id == user.id && <button><a href = {edit_user}>Edit Profile</a></button>}
-                <button><a href = "/map">Map</a></button>
-           </div>
-
-           <h4>
-               About {user.firstname}:<br/>
-               '{user.bio}'<br/><br/>
-               Current Cloud:<br/>
-               {user.lat} / {user.lng}<br/><br/>
-               Age: {user.age}<br/><br/>
-               Recent Posts:<br/><br/>
-           </h4>
-
-           <ProfileFeed
-                posts = {posts}
-                user = {user}
-                current_user = {current_user}
+        <div className = "changeAvatar">
+          <ChangeAvatar
+             current_user={current_user}
            />
+           <div className = "halfcircle">
+              Change Picture
+           </div>
+        </div>
 
-         </div>
+        <h3>{user.firstname} {user.lastname} ({user.username})<br/></h3>
 
-   </section>
+        <div className = "buttons">
+           {!friendsids.includes(user.id) && sentpendingids.includes(user.id) && <button onClick = {this.handleAccept}>Accept</button>}
+           {!friendsids.includes(user.id) && sentpendingids.includes(user.id) && <button onClick = {this.handleReject}>Reject</button>}
+           {friendsids.includes(user.id) && <button onClick = {this.destroyFriendship}>UnFriend</button> || current_user.id != user.id && !pendingids.includes(user.id) && <button onClick = {this.handleFriendRequest}>Send a friend Request</button> }
+           {current_user.id != user.id && <button>Send a Message</button>}
+           {current_user.id == user.id && <button><a href = {edit_user}>Edit Profile</a></button>}
+            <button><a href = "/map">Map</a></button>
+        </div>
+
+         <h4>
+           About {user.firstname}:<br/>
+           '{user.bio}'<br/><br/>
+           Current Cloud:<br/>
+           {user.lat} / {user.lng}<br/><br/>
+           Age: {user.age}<br/><br/>
+           Recent Posts:<br/><br/>
+         </h4>
+
+         <ProfileFeed
+            posts = {posts}
+            user = {user}
+            current_user = {current_user}
+         />
+
+      </div>
+
+    </section>
 
       )
     }

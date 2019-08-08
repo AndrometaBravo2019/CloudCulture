@@ -21,7 +21,7 @@ class ProfileFeed extends React.Component {
                         <li id = "profilePost">{post.created_at.substring(0, 10)} - {post.poststring}</li>
                 )}})
             return(
-                <div>
+                <div className = "profilefeed">
                     {allmyposts}
                 </div>
             )
