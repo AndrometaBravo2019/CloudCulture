@@ -24,7 +24,7 @@ class CloudFeed extends React.Component {
     this.setState(statusFilterArr)
   }
   render() {
-    let{posts, user, closePosts}=this.props
+    let {posts, user, closePosts} =this.props
     let {statusFilterArr, statusdisp}=this.state
     return (
       <Container className = "feed">
@@ -37,6 +37,7 @@ class CloudFeed extends React.Component {
          {closePosts.map((post,index) => {
             if(statusFilterArr.includes(post.post_status)){
               let pind = post.post_status - 1
+              let comment = `commentfeed/${post.id}`
               return(
                 <ListGroup.Item key={post}>
 
@@ -76,7 +77,7 @@ class CloudFeed extends React.Component {
 
                   <div className = 'col-4'>
                     <p align="right">[
-                      <a href="">
+                      <a href={comment}>
                         <font color = 'orange'>comment</font>
                       </a> ]
                     </p>

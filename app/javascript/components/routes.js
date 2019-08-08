@@ -7,6 +7,7 @@ import { Nav, NavItem, NavLink} from 'reactstrap'
 ////routes
 import Home from './home'
 import CloudFeed from './feed'
+import CommentFeed from './commentfeed'
 import CloudPost from './post'
 import AboutUs from './aboutus'
 import Profile from './profile'
@@ -53,8 +54,8 @@ class Routes extends React.Component {
   }
 
   render () {
-      const {logged_in, sign_in, sign_out, current_user, users, edit_user} = this.props
-      let { posts, myLocation} = this.state
+      const { logged_in, sign_in, sign_out, current_user, users, edit_user } = this.props
+      let { posts, myLocation } = this.state
       let { statusFilter } = this
 
 
@@ -98,13 +99,13 @@ class Routes extends React.Component {
                   />}
               />
 
-             <Route exact path="/feed"
-                 component={() => <CloudFeed
-                 posts={posts}
-                 logged_in={logged_in}
-                 current_user = {current_user}
-                 /> }
-              />
+              <Route exact path="/commentfeed/:id"
+                  component={(props) => <CommentFeed
+                    {...props}
+                  current_user = {current_user}
+                  logged_in={logged_in}
+                  /> }
+               />
 
              <Route exact path="/post"
                 component={() => <CloudPost
