@@ -9,7 +9,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    render json: Post.find(params[:id]).as_json(:include => {:comments => {:include => :commentstring } })
+    render json: Post.find(params[:id]).as_json(:include => {
+                                              :comments => {:include =>
+                                                { :commentstring => {}, :subcomments => {:include => :commentstring}}} } )
   end
 
   def create

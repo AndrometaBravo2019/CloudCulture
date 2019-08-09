@@ -467,3 +467,198 @@ MAP SECTION
   .postBase .btn{
     grid-area: submit;
   }
+
+
+
+
+/////////comments page/////
+
+.commentFeed{
+
+}
+
+  .commentFeed h1{
+    margin: 80px;
+  }
+  .commentFeed img{
+    height: 50px;
+    width: 50px;
+    margin-left: 100px;
+    border-radius: 50%;
+  }
+  .commentFeed input{
+    height: 50px;
+    width: 70%;
+    margin-left: 50px;
+    text-align: center;
+  }
+
+  .commentFeed .comments{
+    margin-top: 50px;
+    background-color: #f2f2f2;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 70px;
+  }
+
+  .comments .cloudparts{
+    position: absolute;
+    margin-top: 50px;
+    display:grid;
+    grid-template-columns: 700px 40px 75px 60px 100px;
+    grid-template-areas: auto;
+    grid-template-areas:
+    ". one two three four"
+  }
+
+  .cloudparts .cloud{
+    grid-area: one;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    background-color: #a6a6a6;
+    transform: rotate(227deg);
+    margin-top: 4px;
+  }
+  .cloudparts .bigcloud{
+    grid-area: two;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    right:0;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    background-color: #a6a6a6;
+    border-right-color: transparent;
+    transform: rotate(225deg);
+    margin-top: -8px;
+  }
+  .cloudparts .cloud2{
+    grid-area: three;
+    box-sizing: border-box;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    background-color: #a6a6a6;
+    transform: rotate(225deg);
+  }
+  .cloudparts .bigcloud2{
+    grid-area: four;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    right:0;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    background-color: #a6a6a6;
+    border-right-color: transparent;
+    transform: rotate(225deg);
+    margin-top: -28px;
+  }
+
+
+  .comments .comment{
+    margin-left: 100px;
+    margin-right: 150px;
+    padding-bottom:70px;
+    height: 50px;
+    background-color: #a6a6a6;
+    box-shadow: 5px 10px;
+    border-radius: 15px 0px 0px 15px;
+    padding-top: 8px;
+    z-index: 2;
+  }
+  .comment h3{
+    padding-left: 10px;
+  }
+  .replydiv{
+    margin-top:5px;
+    margin-right: 150px;
+    background:url(rain.png);
+    background-color: #b3b3b3;
+    display: grid;
+    grid-template-columns: 150px 10% 80%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "button . reply"
+  }
+  .noreplydiv{
+    grid-area: reply;
+    display: grid;
+    grid-template-columns: 80px 1px 1px;
+    grid-template-rows: 5px;
+    grid-template-areas:
+    "nobutton . noreply"
+  }
+  .reply{
+    grid-area: reply;
+    margin-top: -10px;
+    height: 100px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 120px 150px;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "pic input"
+  }
+    .reply img{
+      grid-area: pic;
+      margin-left: -75px;
+    }
+    .reply input{
+      grid-area: input;
+      width: 550px;
+      margin-left: -120px;
+    }
+  .replydiv button{
+    grid-area: button;
+    background-color: #f2f2f2;
+    border-style: none;
+    text-decoration: underline;
+    font-size: 20px;
+  }
+  .replydiv button:focus{
+    outline:none;
+  }
+
+  .noreply{
+    height: 0;
+    opacity: 0;
+  }
+  .noreplydiv button{
+    grid-area: nobutton;
+    margin-right: 100px;
+    margin-left: 10px;
+    border-style: none;
+    background-color: #f2f2f2;
+    text-decoration: underline;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  .noreplydiv button:focus{
+    outline:none;
+  }
+
+  .comments .subcomment{
+    margin-left: 150px;
+    margin-right: 150px;
+    background:url(rain.png);
+    background-color: #b3b3b3;
+    border-radius: 0px 0px 0px 15px;
+    z-index: -1;
+  }
+  .subcomment h4{
+    padding-left: 15px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+  }

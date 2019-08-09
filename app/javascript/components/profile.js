@@ -146,7 +146,6 @@ class Profile extends Component {
 
 
     render(){
-      debugger
         const { users, current_user,
             edit_user, posts
         } = this.props
