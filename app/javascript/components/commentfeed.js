@@ -84,10 +84,12 @@ export default class CommentFeed extends React.Component {
     return (
       <div className = "commentFeed">
         <h1>{post.poststring}</h1>
-        <img src = {current_user.picture_url}></img>
-        <form onSubmit = {this.commentSubmit}>
-          <input placeholder = "write a comment" onChange={this.handleChange} ref={(commentString) => this.commentString = commentString} value = {commentString}/>
-        </form>
+        <div className = "commentbar">
+          <img src = {current_user.picture_url}></img>
+          <form onSubmit = {this.commentSubmit}>
+            <input placeholder = "write a comment" onChange={this.handleChange} ref={(commentString) => this.commentString = commentString} value = {commentString}/>
+          </form>
+        </div>
         {postcomments.reverse()}
       </div>
 

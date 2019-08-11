@@ -521,18 +521,25 @@ MAP SECTION
   .commentFeed h1{
     margin: 80px;
   }
-  .commentFeed img{
-    height: 50px;
-    width: 50px;
-    margin-left: 100px;
-    border-radius: 50%;
+  .commentFeed .commentbar{
+    display: flex;
+    width: 100%;
   }
-  .commentFeed input{
-    height: 50px;
-    width: 70%;
-    margin-left: 50px;
-    text-align: center;
-  }
+    .commentFeed img{
+      height: 50px;
+      width: 50px;
+      margin-left: 100px;
+      border-radius: 50%;
+    }
+    .commentbar form{
+      width: 100%;
+    }
+    .commentFeed input{
+      height: 50px;
+      width: 70%;
+      margin-left: 50px;
+      text-align: center;
+    }
 
   .commentFeed .comments{
     margin-top: 50px;
@@ -545,6 +552,7 @@ MAP SECTION
   .comments .cloudparts{
     position: absolute;
     margin-top: 50px;
+    width: 100%;
     display:grid;
     grid-template-columns: 700px 40px 75px 60px 100px;
     grid-template-areas: auto;
@@ -609,8 +617,8 @@ MAP SECTION
 
   .comments .comment{
     margin-left: 100px;
-    margin-right: 150px;
     padding-bottom:70px;
+    width: 85%;
     height: 50px;
     background-color: #a6a6a6;
     box-shadow: 5px 10px;
@@ -633,6 +641,7 @@ MAP SECTION
     grid-template-areas:
     "button . reply"
   }
+
   .noreplydiv{
     grid-area: reply;
     display: grid;
