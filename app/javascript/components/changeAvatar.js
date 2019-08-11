@@ -29,14 +29,11 @@ class ChangeAvatar extends React.Component {
   render() {
     const{ current_user } = this.state
     return (
-      <div>
+      <div className = "change-avatar">
         <span onClick={this.toggle}><img className="feed-avatar-small" src={current_user.picture_url} /></span>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Change Avatar</ModalHeader>
           <ModalBody>
-
-
-
 
 
           <p>REMOVE CREDENTIALS FROM STORAGE.YML</p>
@@ -99,7 +96,7 @@ class ChangeAvatar extends React.Component {
 
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>Submit</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>

@@ -7,12 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faCog } from '@fortawesome/free-solid-svg-icons'
 
 ////parts
-import FeedTopNav from "./feedTopNav.js"
-import NewPostBox from './newPostBox'
-import CloudPost from './post'
-import CloudFeed from  './feed'
 import Avatar from './avatar'
 import ChangeAvatar from './changeAvatar'
+import CloudFeed from  './feed'
+import CloudPost from './post'
+import FeedTopNav from "./feedTopNav.js"
+import Navbar from './nav'
+import NewPostBox from './newPostBox'
 import UserMap from './userMap'
 
 /////fetches
@@ -23,15 +24,15 @@ import{ getCloseUsers } from './API'
 class Home extends React.Component {
   constructor(props){
     super(props)
-    this.state={
-      closeUsers:[],
-      closePosts: [],
-      posts:[],
-      test: "it worked",
-      visible: "modalHide"
-
-    }
+      this.state={
+        closeUsers:[],
+        closePosts: [],
+        posts:[],
+        test: "it worked",
+        visible: "modalHide"
+      }
   }
+
   componentWillMount(){
     getCloseUsers()
       .then(APIusers => {
@@ -69,44 +70,13 @@ class Home extends React.Component {
     return (
 
         <div className = "home">
-          <header className="header">
-            <nav className="navbar navbar-expand-lg">
-              <div className="container">
 
-                <a href="#intro" className="navbar-brand link-scroll">
-                  <img src="img/cloudblue.png" alt="" className="img-fluid"/>Cloud Culture
-                </a>
-
-                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" className="navbar-toggler navbar-toggler-right">
-                  <i className="fa fa-bars"></i>
-                </button>
-
-                <div id="navbarSupportedContent" className="collapse navbar-collapse">
-                  <ul className="navbar-nav ml-auto" id = "nav-items">
-                    <li className="nav-item">
-                      <a href="#intro" className="nav-link link-scroll">Home</a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#about" className="nav-link link-scroll">About </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#services" className="nav-link link-scroll">Team</a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="/map" className="nav-link link-scroll">Map</a>
-                    </li>
-                    <li className="nav-item">
-                      <a href = {logged_in && `/userprofile/${current_user.id}` || sign_in}
-                          className="nav-link link-scroll">
-                          {logged_in && "Profile"}{!logged_in && "Sign In"}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-              </div>
-            </nav>
-          </header>
+          <Navbar
+            current_user = { current_user }
+            sign_in = { sign_in }
+            sign_out = { sign_out }
+            logged_in = { logged_in }
+          />
 
           <div className="grid-container">
             <div className="Feed">

@@ -14,6 +14,11 @@
     opacity: 1;
 }
     .feed-avatar{
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+    .atar{
         border-radius: 50%;
         width: 80px;
         height: 80px;
@@ -39,16 +44,19 @@
     height:50px;
     width: 100%;
     display: flex;
+    background-color: white;
     padding:10px;
     margin-top: 70px;
     box-shadow: 0px 0px 10px grey;
-
+    z-index: 2;
 }
     #user-icon-section{
       display: flex;
       width:30px;
       height:30px;
       border-radius: 50%;
+      border-style: dashed;
+      border-width: 1px;
     }
         .feed-avatar-small{
           border-radius: 50%;
@@ -68,29 +76,17 @@
 
 .intro {
    background: url(http://www.alcortech.com/wp3/wp-content/uploads/2016/08/Cloud.jpg);
-   position: relative;
-   width: auto;
-   height: auto;
-   color: #fff;
-   background-color: #111;
-   min-height: 600px;
-   background-size: cover;
    background-position: center center;
+   background-attachment: fixed;
+   background-color: #111;
+   background-size: cover;
+   color: #fff;
+   position: relative;
+   min-height: 600px;
    overflow: visible;
-   background-attachment: fixed;
-   position: relative;
-   width: 100%;
+   padding: 50px;
    height: auto;
-   color: #fff;
-   background-color: #111;
-   min-height: 600px;
-   padding: 0;
-   background-size: cover;
-   background-position: center center;
-   background-attachment: fixed;
-   padding: 20px;
-   background-color: #f2f2f2;
-   margin:20px;
+   width: 100%;
 }
 
   .overlay {
@@ -105,20 +101,104 @@
      border-width: 10px;
      border-style: double;
      border-color: grey;
-     padding-left:10px;
+     padding-left:15px;
+     padding-bottom: 10px;
+     display: grid;
+     grid-template-columns: 12% 88%;
+     grid-template-rows: auto;
+     grid-template-areas:
+     "title title"
+     "pic name"
+     "buttons buttons"
+     "h4 h4"
+     "feed feed"
   }
 
     #title {
-       padding-top: 5px;
-       opacity: 1;
-       border-radius: 5%;
-       margin-bottom: 0.5rem;
-       font-family: "Montserrat", sans-serif;
-       font-weight: 700;
-       line-height: 1.44;
-       color: inherit;
-       text-transform: uppercase;
-       letter-spacing: 0.2em;
+      grid-area: title;
+      padding-top: 5px;
+      opacity: 1;
+      border-radius: 5%;
+      margin-bottom: 0.5rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      line-height: 1.44;
+      color: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .overlay .changeAvatar{
+      grid-area: pic;
+      height: 120px;
+      width: 120px;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+      .changeAvatar .feed-avatar-small{
+        border-radius: 50%;
+        height: 120px;
+        width:120px;
+      }
+      .overlay .profilepic{
+        border-radius: 50%;
+        height: 120px;
+        width: 120px;
+        margin-left: 15px;
+      }
+      .overlay .changeAvatar .profilepic{
+        margin-left: 0px;
+      }
+      .halfcircle{
+        opacity: 0;
+        pointer-events: none;
+        background-color: white;
+        text-align: center;
+        height: 60px;
+        width: 120px;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+      }
+      .halfcircle p{
+        color:red !important;
+        font-size: 20px !important;
+        font-style: none !important;
+        text-shadow: none !important;
+        pointer-events: none;
+      }
+      .changeAvatar:hover .halfcircle{
+        opacity: .7;
+        transform:translateY(-57px);
+      }
+    .overlay h3{
+      grid-area: name;
+      padding-top: 40px;
+    }
+
+    .overlay .buttons{
+      grid-area: buttons;
+      padding-top: 20px;
+    }
+
+      .buttons .homebutton{
+        margin-bottom: 10px;
+      }
+      .buttons .accept{
+        margin: 5px;
+      }
+      .buttons .reject{
+        margin: 5px;
+      }
+      .buttons .makeafriend{
+        margin-bottom: 10px;
+      }
+
+    .overlay h4{
+      grid-area: h4;
+      padding-top: 30px;
+    }
+    .overlay .profilefeed{
+      grid-area: feed;
     }
 
 
@@ -132,58 +212,101 @@
 
 
 .Landing{
-
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 600px 600px 400px 100px;
+  grid-template-areas:
+  "top"
+  "about"
+  "services"
+  "footer"
 }
-  #intro{
 
+  #top{
+    grid-area: top;
+    padding-top:20%;
   }
-    #titlediv{
+    #top h1{
+      color: #8c8d8f;
+      margin-left:20%;
+    }
+    #top p{
+      color: #ababab;
+      margin-left:20%;
+    }
+    #wrt{
+      margin-right: 25%;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+  #about{
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 50% 5% 45%;
+    grid-template-rows: 450px;
+    grid-template-areas:
+    "text . img";
+    padding-top:150px;
+  }
+    #aboutText{
+      grid-area: text;
+      padding-left: 50px;
+    }
+      #aboutText h2{
+        font-size: 50px;
+      }
+      #aboutText p{
+        font-size: 18px;
+      }
+    #aboutImg{
+      grid-area: img;
 
     }
-      #titlediv h1{
-        color: #8c8d8f;
-      }
-      #titlediv p{
-        color: #9b9c9e;
-      }
-  .header{
 
+  #services{
+    grid-area: services;
+    background-color: #eee;
+    display: grid;
+    grid-template-columns: 4% 24% 24% 24% 24%;
+    grid-template-rows: 100px auto;
+    grid-template-areas:
+    "h2 h2 h2 h2 h2"
+    ". miles sebastian chris travis"
   }
-.italic {
-  font-style: italic;
-}
+    #services h2{
+      grid-area: h2;
+      padding-top:10px;
+      padding-left:10px;
+    }
+    #services .miles{
+      grid-area: miles;
+      padding-left: 10px;
+    }
+    #services .sebastian{
+      grid-area: sebastian;
+    }
+    #services .chris{
+      grid-area: chris;
+    }
+    #services .travis{
+      grid-area: travis;
+    }
+
+  .Landing footer{
+    grid-area: footer;
+    color: white;
+  }
+  .Landing footer p{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
 
 .heading {
   margin-bottom: 40px;
-}
-
-.heading:after {
-  content: " ";
-  display: block;
-  width: 100px;
-  height: 1px;
-  margin: 20px 0 20px;
-  background: #555;
-}
-
-.header h1{
-    grid-area: name;
-    position: absolute;
-    bottom: 0;
-}
-
-.services .box {
-  margin-top: 20px;
-}
-
-.services .icon {
-  font-size: 50px;
-  color: #262626;
-  margin-bottom: 10px;
-}
-#services{
-    background-color: #eee;
 }
 
 .intro h1,
@@ -191,7 +314,7 @@
 .intro h3,
 .intro p {
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 2px rgba(43, 43, 43, 1);
 }
 
 .intro p {
@@ -217,143 +340,47 @@ NAVBAR
 */
 
 
-nav.navbar {
+.navbar {
   background: #fff;
-  -webkit-box-shadow: 0 1px 0 #ddd;
-  box-shadow: 0 1px 0 #ddd;
+  box-shadow: 0 2px 0 #ddd;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 50;
+  display: grid;
+  grid-template-columns: auto 12% 45% 7% 7% 7% 7% 7%;
+  grid-template-rows: 35px;
+  grid-template-areas:
+  "logo CC . home about team map profile"
 }
+  .navbar a{
+    color: grey;
+  }
+  .navbar .logo{
+    grid-area: logo;
+    padding-left: 30px;
+    width: 80px;
+    height:60px;
+  }
+  .navbar .CC{
+    grid-area: CC;
+  }
+  .navbar .home{
+    grid-area: home;
+  }
+  .navbar .about{
+    grid-area: about;
+  }
+  .navbar .team{
+    grid-area: team;
+  }
+  .navbar .map{
+    grid-area: map;
+  }
+  .navbar .profile{
+    grid-area: profile;
+  }
 
-nav.navbar a.nav-link {
-  position: relative;
-  top: 1px;
-  width: auto;
-  color: #777;
-  font-style: italic;
-  border-bottom: 1px solid transparent;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-nav.navbar a.nav-link.active, nav.navbar a.nav-link:hover, nav.navbar a.nav-link:focus {
-  color: #333;
-}
-
-nav.navbar a.nav-link.active {
-  border-bottom: 1px solid #333;
-}
-
-nav.navbar .navbar-brand {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-#navitems{
-    display: inline-block;
-}
-
-.navbar {
-  padding: 0.5rem 1rem;
-}
-
-.navbar-brand {
-  display: inline-block;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
-}
-
-.navbar-toggler {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1;
-  border: 1px solid transparent;
-  border-radius: 0rem;
-}
-
-.navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.navbar-light .navbar-nav .nav-link.disabled {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.navbar-light .navbar-nav .show > .nav-link,
-.navbar-light .navbar-nav .active > .nav-link,
-.navbar-light .navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .nav-link.active {
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-.navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.navbar-light .navbar-text {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.navbar-dark .navbar-brand {
-  color: #fff;
-}
-
-.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
-  color: #fff;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.navbar-dark .navbar-nav .nav-link.disabled {
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.navbar-dark .navbar-nav .show > .nav-link,
-.navbar-dark .navbar-nav .active > .nav-link,
-.navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .nav-link.active {
-  color: #fff;
-}
-
-.navbar-dark .navbar-toggler {
-  color: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-dark .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.navbar-dark .navbar-text {
-  color: rgba(255, 255, 255, 0.5);
-}
 
 
 
@@ -418,11 +445,6 @@ MAP SECTION
   float: right;
 }
 
-#titlediv{
-    margin-top: 300px;
-    margin-bottom: -500px;
-}
-
 
 
 ////////////new tag//////
@@ -438,13 +460,13 @@ MAP SECTION
 }
 
 
-
 /////post
 
 .post .poststatus{
   width: 250px;
   display: block;
   height: auto;
+  margin-left: 30px;
 }
 .post textarea{
   resize: none;
@@ -463,14 +485,14 @@ MAP SECTION
   text-align: center;
   padding-left: 20px;
 }
-.statusholder:hover .formoverlay {
+.post:hover .formoverlay {
   opacity: 1;
 }
 .text {
   color: grey;
-  font-size: 18px;
+  font-size: 17px;
   position: absolute;
-  margin-left: 20px;
+  margin-left: 40px;
   margin-bottom: 8px;
 }
 .postBase{
@@ -486,3 +508,218 @@ MAP SECTION
   .postBase .btn{
     grid-area: submit;
   }
+
+
+
+
+/////////comments page/////
+
+.commentFeed{
+
+}
+
+  .commentFeed h1{
+    margin: 80px;
+  }
+  .commentFeed .commentbar{
+    display: flex;
+    width: 100%;
+  }
+    .commentFeed img{
+      height: 50px;
+      width: 50px;
+      margin-left: 100px;
+      border-radius: 50%;
+    }
+    .commentbar form{
+      width: 100%;
+    }
+    .commentFeed input{
+      height: 50px;
+      width: 70%;
+      margin-left: 50px;
+      text-align: center;
+    }
+
+  .commentFeed .comments{
+    margin-top: 50px;
+    background-color: #f2f2f2;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 70px;
+  }
+
+  .comments .cloudparts{
+    position: absolute;
+    margin-top: 50px;
+    width: 100%;
+    display:grid;
+    grid-template-columns: 700px 40px 75px 60px 100px;
+    grid-template-areas: auto;
+    grid-template-areas:
+    ". one two three four"
+  }
+
+  .cloudparts .cloud{
+    grid-area: one;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    background-color: #a6a6a6;
+    transform: rotate(227deg);
+    margin-top: 4px;
+  }
+  .cloudparts .bigcloud{
+    grid-area: two;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    right:0;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    background-color: #a6a6a6;
+    border-right-color: transparent;
+    transform: rotate(225deg);
+    margin-top: -8px;
+  }
+  .cloudparts .cloud2{
+    grid-area: three;
+    box-sizing: border-box;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    background-color: #a6a6a6;
+    transform: rotate(225deg);
+  }
+  .cloudparts .bigcloud2{
+    grid-area: four;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    right:0;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    background-color: #a6a6a6;
+    border-right-color: transparent;
+    transform: rotate(225deg);
+    margin-top: -28px;
+  }
+
+
+  .comments .comment{
+    margin-left: 100px;
+    padding-bottom:70px;
+    width: 85%;
+    height: 50px;
+    background-color: #a6a6a6;
+    box-shadow: 5px 10px;
+    border-radius: 15px 0px 0px 15px;
+    padding-top: 8px;
+    z-index: 2;
+  }
+  .comment h3{
+    padding-left: 10px;
+  }
+  .replydiv{
+    margin-top:5px;
+    margin-right: 150px;
+    margin-bottom: 5px;
+    background:url(rain.png);
+    background-color: #b3b3b3;
+    display: grid;
+    grid-template-columns: 150px 10% 80%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "button . reply"
+  }
+
+  .noreplydiv{
+    grid-area: reply;
+    display: grid;
+    grid-template-columns: 80px 1px 1px;
+    grid-template-rows: 5px;
+    grid-template-areas:
+    "nobutton . noreply"
+  }
+  .reply{
+    grid-area: reply;
+    margin-top: -10px;
+    height: 100px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 120px 150px;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "pic input"
+  }
+    .reply img{
+      grid-area: pic;
+      margin-left: -75px;
+    }
+    .reply input{
+      grid-area: input;
+      width: 550px;
+      margin-left: -120px;
+    }
+  .replydiv button{
+    grid-area: button;
+    background-color: #f2f2f2;
+    border-style: none;
+    text-decoration: underline;
+    font-size: 20px;
+  }
+  .replydiv button:focus{
+    outline:none;
+  }
+
+  .noreply{
+    height: 0;
+    opacity: 0;
+  }
+  .noreplydiv button{
+    grid-area: nobutton;
+    margin-right: 100px;
+    margin-left: 10px;
+    border-style: none;
+    background-color: #f2f2f2;
+    text-decoration: underline;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  .noreplydiv button:focus{
+    outline:none;
+  }
+
+  .comments .subcomment{
+    margin-left: 150px;
+    margin-right: 150px;
+    background:url(rain.png);
+    background-color: #b3b3b3;
+    border-radius: 0px 0px 0px 15px;
+    z-index: -1;
+  }
+  .subcomment h4{
+    padding-left: 15px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+  }
+
+
+
+  //////change avatar
+  .change-avatar{
+
+  }
+    .change-avatar span{
+      background: url(profilepic.jpeg)
+    }

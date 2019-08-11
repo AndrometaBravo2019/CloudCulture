@@ -6,10 +6,21 @@ class ApplicationController < ActionController::Base
 
     protected
 
+# after sign in or sign up redirect to map page
+    def after_sign_in_path_for(user)
+       "/map"
+    end
 
-        def configure_permitted_parameters
+    def after_sign_up_path_for(user)
+       "/map"
+    end
 
-            devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :gender, :age, :bio, :password, :password_confirmation, :firstname, :lastname, :lat, :lng, :remember_me])
-            devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :gender, :age, :bio, :password, :password_confirmation, :firstname, :lastname, :lat, :lng, :remember_me])
-        end
+# strong params
+    def configure_permitted_parameters
+      keys = [:username, :email, :gender,
+        :age, :bio, :password, :password_confirmation,
+        :firstname, :lastname, :lat, :lng, :remember_me, :picture_url]
+        devise_parameter_sanitizer.permit(:sign_up, keys: keys)
+        devise_parameter_sanitizer.permit(:account_update, keys: keys)
+    end
 end

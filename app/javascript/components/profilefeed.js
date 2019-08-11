@@ -13,15 +13,15 @@ class ProfileFeed extends React.Component {
   }
 
   render() {
-    let{posts, user, current_user}=this.props
-    let {myPosts}=this.state
+    let { posts, user, current_user } = this.props
+    let { myPosts } = this.state
         let allmyposts = posts.map((post, index) =>{
           if(post.user_id == user.id){
                 return (
                         <li id = "profilePost">{post.created_at.substring(0, 10)} - {post.poststring}</li>
                 )}})
             return(
-                <div>
+                <div className = "profilefeed">
                     {allmyposts}
                 </div>
             )

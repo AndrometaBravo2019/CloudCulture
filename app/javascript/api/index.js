@@ -12,6 +12,19 @@ let getPosts = function() {
 export {
 	getPosts
 }
+let getPost = function(id) {
+
+	return fetch(`/posts/${id}`)
+		.then((resp) => {
+
+			let json = resp.json()
+			return json
+		})
+}
+
+export {
+	getPost
+}
 
 
 let createPost = function(post,tagid) {

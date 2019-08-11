@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_204533) do
+ActiveRecord::Schema.define(version: 2019_08_08_204151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2019_06_26_204533) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "commentstring_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentstring_id"], name: "index_comments_on_commentstring_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "commentstrings", force: :cascade do |t|
+    t.string "comment_string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "post_status"
@@ -54,6 +69,15 @@ ActiveRecord::Schema.define(version: 2019_06_26_204533) do
     t.datetime "updated_at", null: false
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
+  create_table "subcomments", force: :cascade do |t|
+    t.bigint "commentstring_id"
+    t.bigint "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_subcomments_on_comment_id"
+    t.index ["commentstring_id"], name: "index_subcomments_on_commentstring_id"
   end
 
   create_table "tagnames", force: :cascade do |t|
@@ -109,7 +133,11 @@ ActiveRecord::Schema.define(version: 2019_06_26_204533) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "commentstrings"
+  add_foreign_key "comments", "posts"
   add_foreign_key "posts", "users"
+  add_foreign_key "subcomments", "comments"
+  add_foreign_key "subcomments", "commentstrings"
   add_foreign_key "tags", "posts"
   add_foreign_key "user_statuses", "users", column: "recipient_id"
   add_foreign_key "user_statuses", "users", column: "sender_id"
