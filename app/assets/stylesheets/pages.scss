@@ -14,6 +14,11 @@
     opacity: 1;
 }
     .feed-avatar{
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+    .atar{
         border-radius: 50%;
         width: 80px;
         height: 80px;
@@ -128,16 +133,38 @@
       height: 120px;
       width: 120px;
       cursor: pointer;
+      margin-left: 15px;
     }
+      .changeAvatar .feed-avatar-small{
+        border-radius: 50%;
+        height: 120px;
+        width:120px;
+      }
+      .overlay .profilepic{
+        border-radius: 50%;
+        height: 120px;
+        width: 120px;
+        margin-left: 15px;
+      }
+      .overlay .changeAvatar .profilepic{
+        margin-left: 0px;
+      }
       .halfcircle{
         opacity: 0;
+        pointer-events: none;
         background-color: white;
-        color:red;
         text-align: center;
         height: 60px;
         width: 120px;
         border-bottom-left-radius: 60px;
         border-bottom-right-radius: 60px;
+      }
+      .halfcircle p{
+        color:red !important;
+        font-size: 20px !important;
+        font-style: none !important;
+        text-shadow: none !important;
+        pointer-events: none;
       }
       .changeAvatar:hover .halfcircle{
         opacity: .7;
@@ -152,6 +179,19 @@
       grid-area: buttons;
       padding-top: 20px;
     }
+
+      .buttons .homebutton{
+        margin-bottom: 10px;
+      }
+      .buttons .accept{
+        margin: 5px;
+      }
+      .buttons .reject{
+        margin: 5px;
+      }
+      .buttons .makeafriend{
+        margin-bottom: 10px;
+      }
 
     .overlay h4{
       grid-area: h4;
@@ -426,6 +466,7 @@ MAP SECTION
   width: 250px;
   display: block;
   height: auto;
+  margin-left: 30px;
 }
 .post textarea{
   resize: none;
@@ -444,14 +485,14 @@ MAP SECTION
   text-align: center;
   padding-left: 20px;
 }
-.statusholder:hover .formoverlay {
+.post:hover .formoverlay {
   opacity: 1;
 }
 .text {
   color: grey;
-  font-size: 18px;
+  font-size: 17px;
   position: absolute;
-  margin-left: 20px;
+  margin-left: 40px;
   margin-bottom: 8px;
 }
 .postBase{
@@ -583,6 +624,7 @@ MAP SECTION
   .replydiv{
     margin-top:5px;
     margin-right: 150px;
+    margin-bottom: 5px;
     background:url(rain.png);
     background-color: #b3b3b3;
     display: grid;
@@ -662,3 +704,13 @@ MAP SECTION
     padding-top: 45px;
     padding-bottom: 15px;
   }
+
+
+
+  //////change avatar
+  .change-avatar{
+
+  }
+    .change-avatar span{
+      background: url(profilepic.jpeg)
+    }

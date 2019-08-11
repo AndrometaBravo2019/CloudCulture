@@ -9,9 +9,9 @@ class TagnamesController < ApplicationController
         @lower = params[:tagname]
         @caps = @lower.downcase
         @use = @caps.capitalize!
-        if Tagname.where("tag = ?" , @use).blank?
-            @new = Tagname.create(tag: @use)
-            render "/map"
+        if Tagname.where('tag = ?', @use).blank?
+          @new = Tagname.create(tag: @use)
+          render "/map"
         end
         render json: @new
     end

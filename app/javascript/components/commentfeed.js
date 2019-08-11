@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import Comment from "./comment"
 
 import { getPost } from '../api/index.js'
+import { createComment } from '../api/api'
 
 export default class CommentFeed extends React.Component {
     constructor(props){
@@ -11,12 +12,16 @@ export default class CommentFeed extends React.Component {
           this.state = {
             post: [],
             comments: [],
+            commentString: "",
+            post_id: this.props.match.params.id
           }
+          this.handleChange = this.handleChange.bind(this);
+          this.commentSubmit = this.commentSubmit.bind(this)
     }
 
     componentWillMount() {
-      let id = this.props.match.params.id
-      getPost(id)
+      const {post_id} = this.state
+      getPost(post_id)
         .then(APIpost => {
           this.setState({
             post: APIpost,
@@ -25,11 +30,25 @@ export default class CommentFeed extends React.Component {
         })
     }
 
+    commentSubmit(){
+      const {post_id, commentString} = this.state
+      createComment(post_id, commentString).then(successPost => {
+        alert("Comment Submitted")
+      })
+    }
+
+    handleChange(event){
+      const { commentString } = this.state
+      this.setState({commentString: this.commentString.value})
+    }
+
+
 
   render () {
 
-    const { post, comments, reply } = this.state
+    const { post, comments, reply, commentString, post_id } = this.state
     const { current_user } = this.props
+
         let postcomments = comments.map((comment, index) => {
           return(
             <div className = "comments">
@@ -48,12 +67,13 @@ export default class CommentFeed extends React.Component {
 
               <Comment
                 current_user = {current_user}
+                comment = {comment}
               />
 
               {comment.subcomments.map((subcomment, index) => {
                 return(
                 <div className = "subcomment">
-                  <h4 >{subcomment.updated_at.substring(0, 10)} -{subcomment.commentstring.comment_string}</h4>
+                  <h4>{subcomment.updated_at.substring(0, 10)} -{subcomment.commentstring.comment_string}</h4>
                 </div>
               )
               })}
@@ -65,7 +85,9 @@ export default class CommentFeed extends React.Component {
       <div className = "commentFeed">
         <h1>{post.poststring}</h1>
         <img src = {current_user.picture_url}></img>
-        <input placeholder = "write a comment"></input>
+        <form onSubmit = {this.commentSubmit}>
+          <input placeholder = "write a comment" onChange={this.handleChange} ref={(commentString) => this.commentString = commentString} value = {commentString}/>
+        </form>
         {postcomments.reverse()}
       </div>
 

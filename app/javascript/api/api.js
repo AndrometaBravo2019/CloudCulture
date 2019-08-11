@@ -151,3 +151,42 @@ let createTagName = function(tagname){
 export {
 	createTagName
 }
+
+
+
+
+///comments
+
+let createComment = function(post_id, postString){
+	return fetch(`/newcomment/${post_id}/${postString}`, {
+		body: JSON.stringify(post_id, postString),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "POST"
+	})
+		.then((resp) => {
+			let json = resp.json()
+			return json
+		})
+}
+export {
+	createComment
+}
+
+let createReply = function(comment_id, postString){
+	return fetch(`/newreply/${comment_id}/${postString}`, {
+		body: JSON.stringify(comment_id, postString),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "POST"
+	})
+		.then((resp) => {
+			let json = resp.json()
+			return json
+		})
+}
+export {
+	createReply
+}
