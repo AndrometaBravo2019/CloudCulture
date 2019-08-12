@@ -119,9 +119,12 @@ class CloudPost extends React.Component {
                 <div className = "post">
                 <center>
                   <form id="postfeed" >
-                    <p>
-                      <font color = 'orange'>Please tell us about your project!</font>
-                    </p>
+                    <div className = "post-top">
+                      <button className = "exit" onClick = {this.plusClick}>x</button>
+                        <p>
+                          <font color = 'orange'>Please tell us about your project!</font>
+                        </p>
+                      </div>
                     <div className = "statusholder">
                       <div className={formoverlay}>
                         <div className="text">Set Your Availability</div>

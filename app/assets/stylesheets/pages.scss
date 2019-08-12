@@ -60,6 +60,8 @@
     }
         .feed-avatar-small{
           border-radius: 50%;
+          width:30px;
+          height:30px;
         }
     #feed-username{
        display: inline-block;
@@ -470,7 +472,7 @@ MAP SECTION
   position:absolute;
   font-size: 40px;
   color: white;
-  background-color: orange;
+  background-color: #ffae00;
   border-style: none;
   margin: 5px;
   margin-left: 150px;
@@ -478,23 +480,33 @@ MAP SECTION
 }
 .plus:hover{
   box-shadow: none;
-  background-color: #ffae00;
+  background-color: orange;
   transform: translateY(5px);
 }
 .plus:active{
   background-color: #d99400;
 }
-
+.post-top{
+  display: flex;
+}
+.post-top p{
+  margin-left: 10%;
+}
+.exit{
+  border-style: none;
+  margin-top: -20px;
+  background-color: rgba(0,0,0,0)
+}
 .post .poststatus{
-  width: 250px;
+  width: 300px;
   display: block;
   height: auto;
-  margin-left: 30px;
+  margin-left: -15px;
 }
 .post textarea{
   resize: none;
-  width: 250px;
-  heght: 150px;
+  width: 300px;
+  height: 80px;
 }
 
 .formoverlay{
@@ -515,7 +527,6 @@ MAP SECTION
   color: grey;
   font-size: 17px;
   position: absolute;
-  margin-left: 40px;
   margin-bottom: 8px;
 }
 .postBase{
@@ -701,9 +712,7 @@ MAP SECTION
     text-decoration: underline;
     font-size: 20px;
   }
-  .replydiv button:focus{
-    outline:none;
-  }
+
 
   .noreply{
     height: 0;
@@ -718,9 +727,6 @@ MAP SECTION
     text-decoration: underline;
     font-size: 20px;
     margin-top: 40px;
-  }
-  .noreplydiv button:focus{
-    outline:none;
   }
 
   .comments .subcomment{
