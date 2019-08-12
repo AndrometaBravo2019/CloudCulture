@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { Container, Form} from 'react-bootstrap'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, ButtonGroup, Button} from 'reactstrap';
 
-import {createPost} from '../api/index'
-import {allTagNames} from '../api/api'
+import { createPost } from '../api/index'
+import { allTagNames } from '../api/api'
 
 class CloudPost extends React.Component {
 
@@ -16,13 +16,14 @@ class CloudPost extends React.Component {
            lat: '',
            lng: '',
            poststring: '',
-           post_status: '',
+           post_status: ''
         },
            formoverlay: "formoverlay",
            tag_id: "",
            tagdropdownOpen: false,
            statusdropdownOpen: false,
            tagnames: [],
+           circle: true,
           }
           this.handleNewPost = this.handleNewPost.bind(this);
           this.handleChange = this.handleChange.bind(this);
@@ -31,7 +32,7 @@ class CloudPost extends React.Component {
           this.statustoggle = this.statustoggle.bind(this);
           this.tagselect = this.tagselect.bind(this);
           this.statusselect = this.statusselect.bind(this);
-
+          this.plusClick = this.plusClick.bind(this)
       }
 
       handleNewPost(){
@@ -48,6 +49,7 @@ class CloudPost extends React.Component {
           this.setState({formoverlay: "nodisp"})
         }
       }
+
       handleIdChange(event){
         this.setState({ tag_id: this.tag_id.value })
       }
@@ -57,6 +59,7 @@ class CloudPost extends React.Component {
           tagdropdownOpen: !prevState.tagdropdownOpen
         }));
       }
+
       statustoggle() {
         this.setState(prevState => ({
           statusdropdownOpen: !prevState.statusdropdownOpen
@@ -69,12 +72,20 @@ class CloudPost extends React.Component {
           tag_id: event.target.value
         });
       }
+
       statusselect(event) {
         const {post_status} = this.state.form
         this.setState({
           statusdropdownOpen: !this.state.statusdropdownOpen,
           post_status: this.post_status.value
         });
+      }
+
+      plusClick(){
+        this.setState(prevState => ({
+          circle: !prevState.circle
+        }));
+        console.log("clicked");
       }
 
 
@@ -85,7 +96,8 @@ class CloudPost extends React.Component {
       )}
 
       render() {
-        let {tagnames, formoverlay} = this.state
+        let {tagnames, formoverlay, circle} = this.state
+        console.log(circle);
         let dropitems = tagnames.map((tag, index)=>{
           return(
             <DropdownItem
@@ -98,63 +110,71 @@ class CloudPost extends React.Component {
           )
       });
       return (
-        <Container>
-          <div className = "post">
-            <center>
-              <form id="postfeed" >
-                <p>
-                  <font color = 'orange'>Please tell us about your project!</font>
-                </p>
-                <div className = "statusholder">
-                  <div className={formoverlay}>
-                    <div className="text">Set Your Availability</div>
-                  </div>
-                  <Form.Control  as="select" ref={post_status => this.post_status = post_status} onChange={this.handleChange} name = "post_status" className = "poststatus">
-                    <option> </option>
-                    <option value = "1">Available</option>
-                    <option value = "2">Working</option>
-                    <option value = "3">Busy</option>
-                  </Form.Control>
-                </div>
-                <br/>
+          <div>
+            {circle == true
+              && <button className = "plus" onClick = {this.plusClick}>✚</button>
+              ||
+            <div className="Comment-Box">
+              <Container>
+                <div className = "post">
+                <center>
+                  <form id="postfeed" >
+                    <p>
+                      <font color = 'orange'>Please tell us about your project!</font>
+                    </p>
+                    <div className = "statusholder">
+                      <div className={formoverlay}>
+                        <div className="text">Set Your Availability</div>
+                      </div>
+                      <Form.Control  as="select" ref={post_status => this.post_status = post_status} onChange={this.handleChange} name = "post_status" className = "poststatus">
+                        <option> </option>
+                        <option value = "1">Available</option>
+                        <option value = "2">Working</option>
+                        <option value = "3">Busy</option>
+                      </Form.Control>
+                    </div>
+                    <br/>
 
-                <textarea
-                  type='text'
-                  name='poststring'
-                  onChange={this.handleChange}
-                  value={this.state.form.poststring}
-                  ref={(poststring) => this.poststring = poststring}
-                  placeholder=" post content ..."
-                />
+                    <textarea
+                      type='text'
+                      name='poststring'
+                      onChange={this.handleChange}
+                      value={this.state.form.poststring}
+                      ref={(poststring) => this.poststring = poststring}
+                      placeholder=" post content ..."
+                    />
 
-                <br/>
-                <br/>
-                <div className = "postBase">
-                  <Dropdown as={ButtonGroup} isOpen={this.state.tagdropdownOpen} toggle={this.tagtoggle} onClick = {this.tagselect} className = "tagselecter">
-                    <Button variant="success" disabled >Tags</Button>
-                    <DropdownToggle split variant="success" id="dropdown-split-basic" />
-                    <DropdownMenu>
-                      <DropdownItem
-                           href="/createtag">
-                           ⇥ Create a Tag ⇤
-                       </DropdownItem>
-                      {dropitems}
-                    </DropdownMenu>
-                  </Dropdown>
+                    <br/>
+                    <br/>
+                    <div className = "postBase">
+                      <Dropdown as={ButtonGroup} isOpen={this.state.tagdropdownOpen} toggle={this.tagtoggle} onClick = {this.tagselect} className = "tagselecter">
+                        <Button variant="success" disabled >Tags</Button>
+                        <DropdownToggle split variant="success" id="dropdown-split-basic" />
+                        <DropdownMenu>
+                          <DropdownItem
+                               href="/createtag">
+                               ⇥ Create a Tag ⇤
+                           </DropdownItem>
+                          {dropitems}
+                        </DropdownMenu>
+                      </Dropdown>
 
-                  <button
-                    type="submit"
-                    onClick={this.handleNewPost}
-                    className="btn btn-secondary btn-sm">CREATE POST
-                  </button>
-                </div>
+                      <button
+                        type="submit"
+                        onClick={this.handleNewPost}
+                        className="btn btn-secondary btn-sm">CREATE POST
+                      </button>
+                    </div>
 
-                <br/>
+                    <br/>
 
-              </form>
-            </center>
+                  </form>
+                </center>
+              </div>
+            </Container>
           </div>
-        </Container>
+            }
+        </div>
       )
     }
 }

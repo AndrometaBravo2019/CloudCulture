@@ -462,6 +462,29 @@ MAP SECTION
 
 /////post
 
+.plus{
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px grey;
+  height: 100px;
+  width: 100px;
+  position:absolute;
+  font-size: 40px;
+  color: white;
+  background-color: orange;
+  border-style: none;
+  margin: 5px;
+  margin-left: 150px;
+  margin-top: 100px;
+}
+.plus:hover{
+  box-shadow: none;
+  background-color: #ffae00;
+  transform: translateY(5px);
+}
+.plus:active{
+  background-color: #d99400;
+}
+
 .post .poststatus{
   width: 250px;
   display: block;

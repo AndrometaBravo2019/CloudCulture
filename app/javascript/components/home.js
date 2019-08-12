@@ -104,11 +104,9 @@ class Home extends React.Component {
                 closeUsers= {closeUsers}
               />
               {current_user != null &&
-                <div className="Comment-Box">
                   <CloudPost
                     current_user={current_user}
                   />
-                </div>
               }
               <div className="Filter-Area">
                 <p>Filter</p>
