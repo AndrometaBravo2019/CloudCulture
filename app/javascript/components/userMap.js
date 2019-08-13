@@ -1,4 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types"
+import ReactDOM from 'react-dom'
+import{Card, CardImg, Button, CardTitle, CardBody, CardSubtitle, CardText} from 'reactstrap'
+
+
+import CloudPost from './post'
 
 
 export default class UserMap extends Component {
@@ -70,9 +76,29 @@ componentDidUpdate(prevProps) {
 
 
   render(){
+    const { current_user, myLocation } = this.props
 
      return(
-            <div id = "mapid"></div>
+            <div id = "mapid">
+              {current_user != null &&
+                <CloudPost
+                  current_user={current_user}
+                />
+              }
+              <div className="Filter-Area">
+                <p>Filter</p>
+                { myLocation.length != 0 &&
+                  <p>
+                    Lat: {myLocation.location.lat}
+                    Lng: {myLocation.location.lng}
+                  </p>
+                }
+                <p>this button does not work currently</p>
+                <Button>
+                  {current_user && "Confirm Location" || "Hide my Location"}
+                </Button>
+              </div>
+            </div>
       )
  }
  }

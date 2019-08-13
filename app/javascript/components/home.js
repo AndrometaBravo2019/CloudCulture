@@ -10,7 +10,6 @@ import { faCoffee, faCog } from '@fortawesome/free-solid-svg-icons'
 import Avatar from './avatar'
 import ChangeAvatar from './changeAvatar'
 import CloudFeed from  './feed'
-import CloudPost from './post'
 import FeedTopNav from "./feedTopNav.js"
 import Navbar from './nav'
 import NewPostBox from './newPostBox'
@@ -85,18 +84,18 @@ class Home extends React.Component {
             <div className="Feed">
 
               <FeedTopNav
-                current_user={current_user}
-                sign_in={sign_in}
-                sign_out={sign_out}
-                logged_in={logged_in}
+                current_user = {current_user}
+                sign_in = {sign_in}
+                sign_out = {sign_out}
+                logged_in = {logged_in}
               />
 
               <div className="Feed-Posts">
                 <CloudFeed
-                  posts={posts}
-                  statusFilter={statusFilter}
-                  closePosts={closePosts}
-                  getClosePosts={getClosePosts}
+                  posts = {posts}
+                  statusFilter = {statusFilter}
+                  closePosts = {closePosts}
+                  getClosePosts = {getClosePosts}
                 />
               </div>
 
@@ -104,26 +103,10 @@ class Home extends React.Component {
 
             <div className="Map-Container">
               <UserMap
-                closeUsers= {closeUsers}
+                closeUsers = {closeUsers}
+                current_user = {current_user}
+                myLocation = {myLocation}
               />
-              {current_user != null &&
-                  <CloudPost
-                    current_user={current_user}
-                  />
-              }
-              <div className="Filter-Area">
-                <p>Filter</p>
-                { myLocation.length != 0 &&
-                  <p>
-                    Lat: {myLocation.location.lat}
-                    Lng: {myLocation.location.lng}
-                  </p>
-                }
-                <p>this button does not work currently</p>
-                <Button>
-                  {current_user && "Confirm Location" || "Hide my Location"}
-                </Button>
-              </div>
             </div>
 
           </div>

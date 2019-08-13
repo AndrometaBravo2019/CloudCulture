@@ -85,7 +85,6 @@ class CloudPost extends React.Component {
         this.setState(prevState => ({
           circle: !prevState.circle
         }));
-        console.log("clicked");
       }
 
 
@@ -97,7 +96,6 @@ class CloudPost extends React.Component {
 
       render() {
         let {tagnames, formoverlay, circle} = this.state
-        console.log(circle);
         let dropitems = tagnames.map((tag, index)=>{
           return(
             <DropdownItem
@@ -110,7 +108,7 @@ class CloudPost extends React.Component {
           )
       });
       return (
-          <div>
+          <div className = "cloudpost">
             {circle == true
               && <button className = "plus" onClick = {this.plusClick}>✚</button>
               ||

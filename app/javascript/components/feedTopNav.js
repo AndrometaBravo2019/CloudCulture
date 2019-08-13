@@ -17,7 +17,7 @@ class FeedTopNav extends React.Component {
     const { sign_in, sign_out, logged_in, current_user } = this.props
     return (
       <div className="feed-top-nav">
-        <a href={logged_in && `/userprofile/${current_user.id}` || sign_in}>
+        <a className = "back" href={logged_in && `/userprofile/${current_user.id}` || sign_in}>
           <FontAwesomeIcon
             icon={faArrowLeft}
             color="grey"

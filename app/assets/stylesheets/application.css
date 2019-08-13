@@ -66,12 +66,13 @@
       "Feed Map-Container";
   }
   #mapid {
+    grid-area: Map;
     height: 100%;
     width: 100%;
     z-index: 0;
-    grid-area: Map;
    }
   .Map-Container {
+    grid-area: Map-Container;
     width: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -82,10 +83,10 @@
     "Map Map Map Map"
     "Map Map Map Map"
     "Map Map Map Map";
-    grid-area: Map-Container;
   }
   .Comment-Box{
     display: none;
+    z-index: 999;
   }
   .Filter-Area{
     display: none;
@@ -119,18 +120,6 @@
           border-radius: 50%
         }
         /*  LEAFLET TEST STYLINGS BELOW*/
-
-
-
-         /* Optional: Makes the sample page fill the window. */
-
-         /* can we be more spacific?
-        example ->   .divName body{}   #divName html
-        this will prevent conflicting css... see App.css
-          */
-
-
-        /* cant find these */
 
         .feedcard{
         display: grid;
@@ -225,7 +214,7 @@
         .Feed {
           grid-area: Feed;
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: auto;
           grid-template-rows: 50px 1fr;
           grid-template-areas:
           "feed-top-nav feed-top-nav feed-top-nav"
@@ -234,29 +223,20 @@
 
         .Map-Container {
           grid-area: Map-Container;
-          overflow: hidden;
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-template-rows: 20vh 20vh 20vh 20vh 20vh;
-          grid-template-areas:
-          "Map Map Map Map"
-          "Map Map Map Map"
-          "Map Map Map Map"
-          "Comment-Box Comment-Box . Filter-Area"
-          "Comment-Box Comment-Box . Filter-Area";
         }
         #mapid {
-          grid-area: Map;
           height: 100%;
           width: 100%;
           z-index: 0;
+        }
          }
         .Comment-Box {
-          grid-area: Comment-Box;
           margin: 20px;
+          bottom: 0;
           border-radius: 20px;
           padding: 10px;
-          z-index: 1;
+          z-index: 999;
+          position: absolute;
           background: white;
           box-shadow: 0px 5px 15px grey;
 
@@ -265,7 +245,10 @@
           grid-area: Filter-Area;
           margin: 20px;
           border-radius: 20px;
-          z-index: 99;
+          z-index: 999;
+          position: absolute;
+          right: 0;
+          bottom: 0;
           background: white;
           padding: 20px;
           box-shadow: 0px 0px 10px grey;
@@ -379,9 +362,20 @@
 }
 .feed-top-nav{
   grid-area: feed-top-nav;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
 }
+  .back{
+    margin-left: 5px;
+  }
+  .feed-top-nav #user-icon-section{
+    margin-left: 60px;
+  }
+  #feed-username{
+    margin-left: 90px;
+    font-size: 18px;
+  }
+  #cog-dropdown{
+    margin-left: 100px;
+  }
 .Feed-Posts {
   grid-area: Feed-Posts;
   height: 100vh;
