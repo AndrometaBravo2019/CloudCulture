@@ -63,10 +63,13 @@ class Home extends React.Component {
 
   render () {
 
-    let{ feed, currentLocation, closeUsers, posts, closePosts}=this.state
+    let { feed, currentLocation, closeUsers, posts, closePosts } = this.state
 
-    let{ renderProfiles }=this
-    const{  myLocation, statusFilter, getCloseUsers, current_user, sign_in, sign_out, logged_in }=this.props
+    let { renderProfiles } = this
+    const {  myLocation, statusFilter,
+            getCloseUsers, current_user,
+            sign_in, sign_out,
+            logged_in } = this.props
     return (
 
         <div className = "home">

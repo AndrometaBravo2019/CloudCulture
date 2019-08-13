@@ -26,11 +26,12 @@ class FeedTopNav extends React.Component {
         </a>
 
         <div id="user-icon-section">
-
+          {current_user &&
             <ChangeAvatar
               current_user={current_user}
             />
-          
+          }
+
         </div>
 
         <div id="feed-username">
