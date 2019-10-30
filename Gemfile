@@ -66,7 +66,7 @@ gem "webpacker", "~> 4.0"
 gem "react-rails", "~> 2.5"
 
 gem "aws-sdk-s3", "~> 1.43"
-gem "devise", "~> 4.6"
+gem "devise", "~> 4.7"
 gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'pusher'
